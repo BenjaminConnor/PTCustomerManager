@@ -1,0 +1,12 @@
+<resources>
+    <!-- Strings related to login -->
+    <string name="app_name">PTCustomerManager</string>
+    <string name="success_toast">Login Successful</string>
+    <string name="unsuccessful_toast">Login Unsuccessful</string>
+    <string name="user_name">jdoe</string>
+    <string name="password">welcome1</string>
+    <string name="prompt_user_name">User Name</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+</resources>

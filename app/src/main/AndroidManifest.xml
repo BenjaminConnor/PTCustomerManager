@@ -22,6 +22,26 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".CustomersActivity">
+        </activity>
+        <activity android:name=".InfoActivity">
+        </activity>
+        <activity android:name=".CustomerSessionsActivity">
+        </activity>
+        <activity android:name=".BillingActivity">
+        </activity>
+        <activity android:name=".SessionsActivity">
+        </activity>
+        <activity android:name=".NewSessionActivity">
+        </activity>
+        <activity android:name=".CompleteSessionActivity">
+        </activity>
+        <activity android:name=".PaymentActivity">
+        </activity>
+        <activity android:name=".ReceiptActivity">
+        </activity>
     </application>
 
 </manifest>

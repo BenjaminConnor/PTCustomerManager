@@ -9,4 +9,73 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="logged_in">Logged In:</string>
+
+    <string name="customers_title">Customers</string>
+    <string name="sessions_title">Sessions</string>
+    <string name="complete_session_title">Complete Session</string>
+    <string name="customer_sessions_title">Customer Sessions</string>
+    <string name="customer_list_title">Customer List</string>
+    <string name="customer_info_title">Customer Info</string>
+    <string name="payment_title">Payment</string>
+    <string name="all_sessions_title">All Sessions</string>
+
+    <string name="info">Info</string>
+    <string name="sessions">Sessions</string>
+    <string name="billing">Billing</string>
+
+    <string name="picture_title">Picture</string>
+    <string name="new_pic">Take New Pic</string>
+    <string name="contact_info_title">Contact Info</string>
+    <string name="phone">Phone:</string>
+    <string name="address">Address:</string>
+    <string name="email">Email:</string>
+    <string name="contact_notes">Notes</string>
+
+    <string name="name_on_card">Name on Card:</string>
+    <string name="billing_address">Billing Address:</string>
+    <string name="city">City:</string>
+    <string name="state">State:</string>
+    <string name="zip">Zip:</string>
+    <string name="card_number">Card Number:</string>
+    <string name="exp_date">Exp. Date:</string>
+    <string name="cvv">CVV:</string>
+
+    <string name="session_date">August 24, 2017 1:30pm</string>
+    <string name="new_session_title">New Session</string>
+    <string name="select_customer">Select Customer</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="pick_time">Pick Time</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="new_session_notes">Notes</string>
+
+    <string name="customer_name">Customer1</string>
+    <string name="customer_name_2">Customer2</string>
+    <string name="customer_name_prompt">Customer Name:</string>
+    <string name="date_and_time">Date and Time</string>
+    <string name="location">Location</string>
+    <string name="completed_date">Completed 8/24/2017</string>
+    <string name="complete_session_notes">Notes</string>
+
+    <string name="total_amount_due_label">Total Amount Due:</string>
+    <string name="payment_method_label">Payment Method:</string>
+    <string name="payment_method">VI***9999</string>
+    <string name="sign_below">Sign Below:</string>
+
+    <string name="receipt_title">Receipt</string>
+    <string name="receipt_date_label">Date:</string>
+    <string name="receipt_date">xx-xx-xxxx</string>
+    <string name="amount_received_label">Amount Received:</string>
+    <string name="amount_received">xx.xx</string>
+    <string name="received_date_label">Received:</string>
+    <string name="received_date">8/24/2017</string>
+    <string name="signature_label">Signature:</string>
+
+    <string name="complete_button">Complete</string>
+    <string name="info_button">Info</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="create_button">Create</string>
+    <string name="pay_button">Pay</string>
+    <string name="email_button">Email</string>
+    <string name="print_button">Print</string>
 </resources>

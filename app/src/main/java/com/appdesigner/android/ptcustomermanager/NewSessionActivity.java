@@ -53,37 +53,50 @@ public class NewSessionActivity extends AppCompatActivity {
 
     public void onClick(View view) {
 
+        /*mCheckBox = (CheckBox) view.findViewById(R.id.payNowCheckBox);
+        mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mCheckCode = 1;
+                }
+                else {
+                    mCheckCode = 0;
+                }
+            }
+        });*/
+
         switch(view.getId()) {
             case R.id.selectCustomerTextView:
-                return;
+                break;
             case R.id.pickDateTextView:
-                return;
+                break;
             case R.id.pickTimeTextView:
-                return;
+                break;
             case R.id.cancelButton:
                 mIntent = new Intent(NewSessionActivity.this, CustomerSessionsActivity.class);
                 startActivity(mIntent);
-                return;
+                break;
             case R.id.createButton:
-                setContentView(R.layout.activity_new_session);
-                mCheckBox = (CheckBox) view.findViewById(R.id.payNowCheckBox);
-                mCheckBox.setChecked(true);
-                mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        if (isChecked) {
-                            mIntent = new Intent(NewSessionActivity.this, PaymentActivity.class);
-                            startActivity(mIntent);
-                        }
-                        else {
-                            mIntent = new Intent(NewSessionActivity.this, SessionsActivity.class);
-                            startActivity(mIntent);
-                        }
-                    }
-                });
-
-                return;
+                if (mCheckCode == 1) {
+                    mIntent = new Intent(NewSessionActivity.this, PaymentActivity.class);
+                    startActivity(mIntent);
+                }
+                else {
+                    mIntent = new Intent(NewSessionActivity.this, SessionsActivity.class);
+                    startActivity(mIntent);
+                }
+                break;
         }
 
+    }
+    public void onPayNowClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        if (checked) {
+            mCheckCode = 1;
+        }
+        else {
+            mCheckCode = 0;
+        }
     }
 }

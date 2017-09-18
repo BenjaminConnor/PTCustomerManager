@@ -91,7 +91,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="22dp"
         android:checked="false"
-        android:onClick="onClick"
+        android:onClick="onPayNowClicked"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pickTimeTextView"/>
 

@@ -14,7 +14,6 @@ public class NewSessionActivity extends AppCompatActivity {
 
     private static final String DIALOG_LOG_OFF = "DialogLogOff";
     private Intent mIntent;
-    private CheckBox mCheckBox;
     private int mCheckCode;
 
     @Override
@@ -52,19 +51,6 @@ public class NewSessionActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-
-        /*mCheckBox = (CheckBox) view.findViewById(R.id.payNowCheckBox);
-        mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    mCheckCode = 1;
-                }
-                else {
-                    mCheckCode = 0;
-                }
-            }
-        });*/
 
         switch(view.getId()) {
             case R.id.selectCustomerTextView:

@@ -24,19 +24,24 @@
 
     <EditText
         android:id="@+id/titleEditText"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:editable="false"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none"
         android:text="@string/customer_list_title"
+        android:textColorHighlight="@android:color/holo_green_light"
+        android:textColorLink="@android:color/holo_green_light"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toBottomOf="@+id/loggedInFragment"/>
 
     <ImageButton
@@ -98,12 +103,13 @@
         android:id="@+id/infoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onClick"
         android:text="@string/info_button"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/titleEditText"
-        android:layout_marginEnd="8dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/titleEditText"/>
 
     <Button
         android:id="@+id/infoButton2"
@@ -112,22 +118,24 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="onClick"
         android:text="@string/info_button"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoButton"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
         android:id="@+id/floatingActionButton"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:fabSize="normal"
+        android:layout_marginRight="8dp"
+        android:clickable="true"
+        android:onClick="onClick"
         app:backgroundTint="@color/colorPrimary"
-        android:clickable="true"/>
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add"/>
 
 </android.support.constraint.ConstraintLayout>

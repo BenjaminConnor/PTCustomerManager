@@ -1,5 +1,6 @@
 package com.appdesigner.android.ptcustomermanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -37,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
                 String password = mPasswordView.getText().toString();
                 if (userName.equals("jdoe") && password.equals("welcome1")) {
                     Toast.makeText(LoginActivity.this, R.string.success_toast, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, CustomersActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, R.string.unsuccessful_toast, Toast.LENGTH_SHORT).show();
                 }

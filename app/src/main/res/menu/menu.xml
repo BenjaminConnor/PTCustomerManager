@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/log_off_menu"
+        android:title="@string/log_off"/>
+
+    <item
+        android:id="@+id/customer_menu"
+        android:title="@string/customers"/>
+
+    <item
+        android:id="@+id/session_menu"
+        android:title="@string/sessions_title"/>
+
+</menu>

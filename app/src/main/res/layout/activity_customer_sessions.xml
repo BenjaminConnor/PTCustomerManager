@@ -56,7 +56,7 @@
         android:id="@+id/billingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="52dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
@@ -85,36 +85,21 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoTextView"/>
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:text="@string/session_date"
-        android:clickable="true"
-        android:layout_marginLeft="16dp"
-        android:id="@+id/sessionDate"
-        android:layout_marginTop="16dp"
+    <ListView
+        android:id="@+id/customerSessionsListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintTop_toBottomOf="@+id/titleEditText"
-        android:layout_marginStart="16dp"/>
-
-    <TextView
-        android:id="@+id/sessionDate2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:clickable="true"
-        android:text="@string/session_date"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sessionDate"
-        android:layout_marginStart="16dp"/>
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/addActionButton"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/addActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -127,29 +112,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@android:drawable/ic_input_add"/>
-
-    <Button
-        android:id="@+id/completeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="onClick"
-        android:text="@string/complete_button"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleEditText"/>
-
-    <Button
-        android:id="@+id/completeButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="13dp"
-        android:onClick="onClick"
-        android:text="@string/complete_button"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/completeButton"/>
 
 </android.support.constraint.ConstraintLayout>

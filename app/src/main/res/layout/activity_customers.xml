@@ -44,87 +44,21 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loggedInFragment"/>
 
-    <ImageButton
-        android:id="@+id/customer1ImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@drawable/ic_menu_gallery"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/titleEditText"/>
-
-    <TextView
-        android:id="@+id/customer1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:clickable="true"
-        android:text="@string/customer_name"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        tools:layout_conversion_absoluteHeight="28dp"
-        tools:layout_conversion_absoluteWidth="117dp"
-        tools:layout_conversion_absoluteX="64dp"
-        tools:layout_conversion_absoluteY="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/customer1ImageButton"
+    <ListView
+        android:id="@+id/customerListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/titleEditText"/>
-
-    <ImageButton
-        android:id="@+id/customer2ImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customer1ImageButton"
-        app:srcCompat="@drawable/ic_menu_gallery"
-        android:layout_marginStart="16dp"/>
-
-    <TextView
-        android:id="@+id/customer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/customer_name_2"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        app:layout_constraintLeft_toRightOf="@+id/customer2ImageButton"
-        app:layout_constraintTop_toBottomOf="@+id/customer1"
-        android:layout_marginStart="8dp"/>
-
-    <Button
-        android:id="@+id/infoButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="onClick"
-        android:text="@string/info_button"
+        app:layout_constraintBottom_toTopOf="@+id/addActionButton"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleEditText"/>
-
-    <Button
-        android:id="@+id/infoButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="onClick"
-        android:text="@string/info_button"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoButton"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/addActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

@@ -40,48 +40,45 @@
         app:layout_constraintTop_toBottomOf="@+id/loggedInFragment"/>
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
         android:id="@+id/selectCustomerTextView"
-        app:layout_constraintTop_toBottomOf="@+id/newSessionEditText"
-        android:layout_marginTop="16dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/select_customer"
-        android:layout_marginRight="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="14dp"
         android:clickable="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        android:text="Customer:"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newSessionEditText"
+        />
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
         android:id="@+id/pickDateTextView"
-        app:layout_constraintTop_toBottomOf="@+id/selectCustomerTextView"
-        android:layout_marginTop="24dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/pick_date"
-        android:layout_marginRight="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        android:text="Date:"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/selectCustomerTextView"/>
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="0dp"
         android:id="@+id/pickTimeTextView"
-        app:layout_constraintTop_toBottomOf="@+id/pickDateTextView"
-        android:layout_marginTop="24dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/pick_time"
-        android:layout_marginRight="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginTop="23dp"
+        android:text="Time:"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickDateTextView"/>
 
     <CheckBox
         android:id="@+id/payNowCheckBox"
@@ -96,15 +93,16 @@
         app:layout_constraintTop_toBottomOf="@+id/pickTimeTextView"/>
 
     <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
         android:id="@+id/payNowTextView"
-        app:layout_constraintTop_toBottomOf="@+id/pickTimeTextView"
-        android:layout_marginTop="24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/pay_now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/pay_now"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickTimeTextView"/>
 
     <EditText
         android:layout_height="0dp"
@@ -150,5 +148,38 @@
         android:textColor="@android:color/holo_green_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/customerNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newSessionEditText"/>
+
+    <EditText
+        android:id="@+id/pickDateEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customerNameEditText"/>
+
+    <EditText
+        android:id="@+id/timeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickDateEditText"/>
 
 </android.support.constraint.ConstraintLayout>

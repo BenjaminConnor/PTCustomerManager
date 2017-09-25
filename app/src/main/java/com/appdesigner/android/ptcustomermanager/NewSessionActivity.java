@@ -1,25 +1,50 @@
 package com.appdesigner.android.ptcustomermanager;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Toast;
 
-public class NewSessionActivity extends AppCompatActivity {
+import com.appdesigner.android.ptcustomermanager.database.CustomerDBHelper;
+
+public class NewSessionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String DIALOG_LOG_OFF = "DialogLogOff";
     private Intent mIntent;
     private int mCheckCode;
+    int customerID;
+    int sessionID;
+    private CustomerDBHelper helper;
+    EditText customerNameEditText;
+    EditText dateEditText;
+    EditText timeEditText;
+    EditText notesEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_session);
+
+        sessionID = getIntent().getIntExtra(SessionsActivity.EXTRA_SESSION_ID, 0);
+
+        customerID = getIntent().getIntExtra(CustomersActivity.EXTRA_CREATE_OR_EDIT_KEY, 0);
+        customerNameEditText = (EditText) findViewById(R.id.customerNameEditText);
+        dateEditText = (EditText) findViewById(R.id.pickDateEditText);
+        timeEditText = (EditText) findViewById(R.id.timeEditText);
+        notesEditText = (EditText) findViewById(R.id.notesEditText);
+
+        helper = new CustomerDBHelper(this);
+
+
     }
 
     @Override
@@ -53,26 +78,34 @@ public class NewSessionActivity extends AppCompatActivity {
     public void onClick(View view) {
 
         switch(view.getId()) {
-            case R.id.selectCustomerTextView:
-                break;
-            case R.id.pickDateTextView:
-                break;
-            case R.id.pickTimeTextView:
-                break;
             case R.id.cancelButton:
-                mIntent = new Intent(NewSessionActivity.this, CustomerSessionsActivity.class);
+                mIntent = new Intent(NewSessionActivity.this, SessionsActivity.class);
+                mIntent.putExtra(CustomersActivity.EXTRA_CREATE_OR_EDIT_KEY, customerID);
+                mIntent.putExtra(CustomerSessionsActivity.EXTRA_SESSION_ID, sessionID);
                 startActivity(mIntent);
-                break;
+                return;
             case R.id.createButton:
+                if (helper.insertNewSession(customerID, customerNameEditText.getText().toString(),
+                        dateEditText.getText().toString(), timeEditText.getText().toString(), "",
+                        notesEditText.getText().toString())) {
+                    Toast.makeText(getApplicationContext(), "Session Added", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Could not add session", Toast.LENGTH_SHORT).show();
+                }
                 if (mCheckCode == 1) {
                     mIntent = new Intent(NewSessionActivity.this, PaymentActivity.class);
+                    mIntent.putExtra(CustomersActivity.EXTRA_CREATE_OR_EDIT_KEY, customerID);
+                    mIntent.putExtra(CustomerSessionsActivity.EXTRA_SESSION_ID, sessionID);
                     startActivity(mIntent);
                 }
                 else {
                     mIntent = new Intent(NewSessionActivity.this, SessionsActivity.class);
+                    mIntent.putExtra(CustomersActivity.EXTRA_CREATE_OR_EDIT_KEY, customerID);
+                    mIntent.putExtra(CustomerSessionsActivity.EXTRA_SESSION_ID, sessionID);
                     startActivity(mIntent);
                 }
-                break;
+                return;
         }
 
     }

@@ -7,16 +7,28 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 public class PaymentActivity extends AppCompatActivity {
 
     private static final String DIALOG_LOG_OFF = "DialogLogOff";
+    public static final String EXTRA_TOTAL = "total";
+    public static final String EXTRA_METHOD = "method";
+    public static final String EXTRA_SIGN = "sign";
     private Intent mIntent;
+
+    EditText totalDueEditText;
+    EditText methodEditText;
+    EditText signEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        totalDueEditText = (EditText) findViewById(R.id.totalDueEditText);
+        methodEditText = (EditText) findViewById(R.id.methodEditText);
+        signEditText = (EditText) findViewById(R.id.signEditText);
     }
 
     @Override
@@ -52,6 +64,9 @@ public class PaymentActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.payButton:
                 mIntent = new Intent(PaymentActivity.this, ReceiptActivity.class);
+                mIntent.putExtra(EXTRA_TOTAL, totalDueEditText.getText().toString());
+                mIntent.putExtra(EXTRA_METHOD, methodEditText.getText().toString());
+                mIntent.putExtra(EXTRA_SIGN, signEditText.getText().toString());
                 startActivity(mIntent);
                 return;
             default:

@@ -125,12 +125,6 @@ public class CustomerDBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public int numSessions() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        int numSessions = (int) DatabaseUtils.queryNumEntries(db, SESSIONS_TABLE);
-        return numSessions;
-    }
-
     public boolean updateCustomerInfo(Integer id, String name, String phone, String address, String email, String infoNotes) {
         ContentValues values = new ContentValues();
         values.put(CUSTOMER_NAME_COLUMN, name);

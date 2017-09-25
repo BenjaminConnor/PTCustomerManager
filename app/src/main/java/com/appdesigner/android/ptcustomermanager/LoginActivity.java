@@ -16,8 +16,6 @@ public class LoginActivity extends AppCompatActivity {
 
     // UI references.
     private EditText mPasswordView, mUserName;
-    private View mProgressView;
-    private View mLoginFormView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +46,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
     }
 
 

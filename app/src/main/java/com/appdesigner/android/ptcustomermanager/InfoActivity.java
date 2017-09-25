@@ -2,16 +2,14 @@ package com.appdesigner.android.ptcustomermanager;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.appdesigner.android.ptcustomermanager.database.CustomerDBHelper;
@@ -21,11 +19,9 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
     private static final String DIALOG_LOG_OFF = "DialogLogOff";
     public static final String EXTRA_ID = "EXTRA_ID";
 
-    private Button mSaveButton;
     FloatingActionButton btnEdit;
     FloatingActionButton btnSave;
     private Intent mIntent;
-    //LinearLayout btnLayout;
     int customerID;
 
     private CustomerDBHelper helper;

@@ -3,12 +3,8 @@ package com.appdesigner.android.ptcustomermanager.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import java.sql.Time;
-import java.util.Date;
 
 /**
  * Created by Benjamin on 9/21/2017.

@@ -22,6 +22,7 @@
 
     <EditText
         android:id="@+id/receiptEditText"
+        style="?android:listSeparatorTextViewStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -34,6 +35,7 @@
         android:inputType="none"
         android:labelFor="@+id/signatureEditText"
         android:text="@string/receipt_title"
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loggedInFragment"/>

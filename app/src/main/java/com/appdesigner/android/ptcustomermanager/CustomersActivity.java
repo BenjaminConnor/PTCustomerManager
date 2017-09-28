@@ -2,10 +2,10 @@ package com.appdesigner.android.ptcustomermanager;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,8 +21,8 @@ public class CustomersActivity extends AppCompatActivity {
 
     private ListView listView;
     CustomerDBHelper helper;
-
     private Intent mIntent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,10 @@ public class CustomersActivity extends AppCompatActivity {
                 R.id.customerID,
                 R.id.customerName
         };
+
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.customer_list_item,
                 cursor, cols, widgets, 0);
+
         listView = (ListView) findViewById(R.id.customerListView);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -93,4 +95,5 @@ public class CustomersActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_CREATE_OR_EDIT_KEY, 0);
         startActivity(intent);
     }
+
 }

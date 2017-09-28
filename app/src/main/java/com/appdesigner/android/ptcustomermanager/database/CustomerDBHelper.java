@@ -3,8 +3,13 @@ package com.appdesigner.android.ptcustomermanager.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.appdesigner.android.ptcustomermanager.InfoActivity;
+
+import java.io.File;
 
 /**
  * Created by Benjamin on 9/21/2017.
@@ -39,6 +44,7 @@ public class CustomerDBHelper extends SQLiteOpenHelper {
     public static final String SESSION_LOCATION_COLUMN = "session_location";
     public static final String SESSION_NOTES_COLUMN = "session_notes";
 
+    private Context mContext;
 
     public CustomerDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -202,4 +208,12 @@ public class CustomerDBHelper extends SQLiteOpenHelper {
         Cursor result = db.rawQuery("SELECT * FROM " + SESSIONS_TABLE, null);
         return result;
     }
+
+    public int getNumRows() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, CUSTOMERS_TABLE);
+        return numRows;
+    }
+
+
 }

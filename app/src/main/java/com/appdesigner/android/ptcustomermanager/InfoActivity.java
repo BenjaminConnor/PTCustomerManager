@@ -1,23 +1,42 @@
 package com.appdesigner.android.ptcustomermanager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.appdesigner.android.ptcustomermanager.database.CustomerDBHelper;
+
+import java.io.File;
+import java.util.List;
 
 public class InfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String DIALOG_LOG_OFF = "DialogLogOff";
     public static final String EXTRA_ID = "EXTRA_ID";
+    static final int REQUEST_IMAGE_CAPTURE= 1;
+    final Intent captureImage = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+    private ImageButton newPicButton;
+    private ImageView customerPicView;
+    private Context mContext;
+    private File mPhotoFile;
 
     FloatingActionButton btnEdit;
     FloatingActionButton btnSave;
@@ -32,6 +51,7 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
     EditText infoNotesEditText;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +63,14 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
         addressEditText = (EditText) findViewById(R.id.addressEditText);
         emailEditText = (EditText) findViewById(R.id.emailEditText);
         infoNotesEditText = (EditText) findViewById(R.id.notesEditText);
+
+        newPicButton = (ImageButton) findViewById(R.id.newPicButton);
+        mPhotoFile = getPhotoFile(customerID);
+        boolean canTakePic = mPhotoFile != null && captureImage.resolveActivity(getPackageManager()) != null;
+        newPicButton.setEnabled(canTakePic);
+
+        customerPicView = (ImageView) findViewById(R.id.customerPic);
+        updatePicView();
 
         btnSave = (FloatingActionButton) findViewById(R.id.saveInfoButton);
         btnSave.setOnClickListener(this);
@@ -135,6 +163,20 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(mIntent);
                 return;
             case R.id.newPicButton:
+
+                if (mPhotoFile != null) {
+                    Uri photoUri = FileProvider.getUriForFile(InfoActivity.this,
+                            "com.appdesigner.android.ptcustomermanager.fileprovider", mPhotoFile);
+                    captureImage.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                    List<ResolveInfo> cameraActivities = InfoActivity.this.getPackageManager()
+                            .queryIntentActivities(captureImage, PackageManager.MATCH_DEFAULT_ONLY);
+
+                    for (ResolveInfo activity : cameraActivities) {
+                        InfoActivity.this.grantUriPermission(activity.activityInfo.packageName,
+                                photoUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                    }
+                    startActivityForResult(captureImage, REQUEST_IMAGE_CAPTURE);
+                }
                 return;
             case R.id.saveInfoButton:
                 persistCustomer();
@@ -196,4 +238,32 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Uri photoUri = FileProvider.getUriForFile(InfoActivity.this,
+                    "com.appdesigner.android.ptcustomermanager.fileprovider", mPhotoFile);
+            InfoActivity.this.revokeUriPermission(photoUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            updatePicView();
+        }
+    }
+
+    public File getPhotoFile(int id) {
+        mContext = getApplicationContext();
+        File filesDir = mContext.getFilesDir();
+        String filename = "IMG_" + id + ".jpg";
+        return new File(filesDir, filename);
+
+    }
+
+    private void updatePicView() {
+        if (mPhotoFile == null || !mPhotoFile.exists()) {
+            return;
+        } else {
+            Bitmap bitmap = PicUtil.getScaledBitmap(mPhotoFile.getPath(), InfoActivity.this);
+            customerPicView.setImageBitmap(bitmap);
+        }
+    }
+
 }

@@ -30,7 +30,7 @@ public class InfoActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final String DIALOG_LOG_OFF = "DialogLogOff";
     public static final String EXTRA_ID = "EXTRA_ID";
-    static final int REQUEST_IMAGE_CAPTURE= 1;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
     final Intent captureImage = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
     private ImageButton newPicButton;
